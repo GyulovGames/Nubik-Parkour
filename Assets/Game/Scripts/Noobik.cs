@@ -13,153 +13,72 @@ public class Noobik : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private float movementSpeed;
     [Space(10)]
-    [SerializeField][Range(-45f, 45f)] private float minNechRotationAngle;
-    [SerializeField][Range(-45f, 45f)] private float maxNechRotationAngle;
-    [SerializeField][Range(-45f, 45f)] private float minSpineRotationAngle;
-    [SerializeField][Range(-45f, 45f)] private float maxSpineRotationAngle;
-    [Space(10)]
     [SerializeField] private Transform groundChek;
-    [SerializeField] private Transform handTransform;
-    [SerializeField] private Transform neckhTransform;
-    [SerializeField] private Transform spineTransform;
-    [SerializeField] private Transform leftSholderTransform;
-    [SerializeField] private Transform rightSholderTransform;
-    [SerializeField] private Transform bulletSpawnPoint;
-    [Space(10)]
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private Animator mainAnimator;
-    [SerializeField] private AudioSource shootingSound;
-    [SerializeField] private ParticleSystem muzzleBreak;
-    [Space(10)]
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private GameObject sleve;
-    [Space(10)]
-    public LayerMask groundLayer;
 
-    private Vector3 mousePosition;
-    private int horizontalInput;
-    private bool fireInput;
+    [HideInInspector] public int jumpsNumber = 2;
+    [HideInInspector] public bool isGrounded = true;
+
     private bool isFacingRight = true;
+    private int horizontalInput;
+
 
     private void Update()
     {
-        GetPlayerInput();
-        GetMousePosition();
-
-        Jump();
+        PlayerInput();
+        Animations();
         BodyFlip();
-        NoobAnimations();
-        NeckhRotation();
-        SpineRotation();
-        LeftSholderRotation();
-        RightSholderTransform();
     }
     private void FixedUpdate()
     {
         Movement();
     }
 
-    private void GetMousePosition()
+    private void PlayerInput()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        horizontalInput = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));       
+        if(Input.GetKeyDown(KeyCode.W)) { DoubleJump(); }
     }
-    private void GetPlayerInput()
+    private void Animations()
     {
-        horizontalInput = Mathf.FloorToInt(Input.GetAxisRaw("Horizontal"));
-        fireInput = Input.GetMouseButton(0);
-    }
-    private void NeckhRotation()
-    {
-        Vector3 direction = mousePosition - neckhTransform.position;
-        float angle = Mathf.Atan2(direction.y * transform.localScale.y, direction.x * transform.localScale.x ) * Mathf.Rad2Deg;
-        float clampedAngle = Mathf.Clamp(angle, minNechRotationAngle, maxNechRotationAngle);
-        neckhTransform.localRotation = Quaternion.Euler(0, 0, clampedAngle);
-    }
-    private void SpineRotation()
-    {
-        Vector3 direction = mousePosition - spineTransform.position;
-        float angle = Mathf.Atan2(direction.y * transform.localScale.y, direction.x * transform.localScale.x) * Mathf.Rad2Deg;
-        float clampedAngle = Mathf.Clamp(angle, minSpineRotationAngle, maxSpineRotationAngle);
-        spineTransform.localRotation = Quaternion.Euler(0, 0, clampedAngle);
-    }
-    private void LeftSholderRotation()
-    {
-        Vector3 direction = leftSholderTransform.position - handTransform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        angle -= 90f;
-        leftSholderTransform.rotation = Quaternion.Euler(0, 0, angle);
-    }
-    private void RightSholderTransform()
-    {
-        Vector3 direction;
-        float angle;
-
-        if (isFacingRight)
-        {
-            direction = mousePosition - rightSholderTransform.position;
-            angle = Mathf.Atan2(direction.y, direction.x) * Mathf .Rad2Deg;
-            angle += 60f;
-        }
-        else
-        {
-            direction = rightSholderTransform.position - mousePosition;
-            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            angle -= 60f;
-        }
-       
-        rightSholderTransform.rotation = Quaternion.Euler(0, 0, angle);
-    }
-    private void ShootingAnimation()
-    {
-        muzzleBreak.Play();
-        GameObject bulletObject = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        Rigidbody2D bulletRigid = bulletObject.GetComponent<Rigidbody2D>();
-        bulletSpawnPoint.localRotation = Quaternion.Euler(0, 0, Random.Range(-1.5f, 1.5f));
-        bulletRigid.velocity = bulletSpawnPoint.transform.right * 60f * transform.localScale.x ;
-    }
-    private void NoobAnimations()
-    {
-        if(horizontalInput > 0 && !isFacingRight)
-        {
-            mainAnimator.SetBool("LegsBackward", true);
-        }
-        else if(horizontalInput < 0 && isFacingRight)
-        {
-            mainAnimator.SetBool("LegsBackward", true);
-        }
-        else
-        {
-            mainAnimator.SetBool("LegsBackward", false);
-        }
-
-        mainAnimator.SetInteger("Legs", horizontalInput);
         mainAnimator.SetInteger("Face", horizontalInput);
-        mainAnimator.SetBool("Hands", fireInput);
-        mainAnimator.SetBool("Jump", IsGrounded());
+        mainAnimator.SetInteger("Run", horizontalInput);
+        mainAnimator.SetBool("Jump", isGrounded);
     }
-    private void Movement()
+    private void DoubleJump()
     {
-        rigidBody.velocity = new Vector2(horizontalInput * movementSpeed, rigidBody.velocity.y);
-    }
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundChek.position, 0.2f, groundLayer);
-    }
-    private void BodyFlip()
-    {
-        if (isFacingRight && mousePosition.x < transform.position.x || !isFacingRight && mousePosition.x > transform.position.x)
+        if (isGrounded)
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            jumpsNumber--;
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpPower);
         }
-    }
-    private void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
+        else if (jumpsNumber > 0)
         {
+            jumpsNumber--;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpPower);
         }
     }
+    private void Movement()
+    {
+        rigidBody.velocity = new Vector2(horizontalInput * movementSpeed, rigidBody.velocity.y);       
+    }
+    private void BodyFlip()
+    {
+        if (horizontalInput > 0 && !isFacingRight)
+        {
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+            isFacingRight = !isFacingRight; ;
+        }
+        else if (horizontalInput < 0 && isFacingRight)
+        {
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+            isFacingRight = !isFacingRight;
+        }     
+    }
+
 }
