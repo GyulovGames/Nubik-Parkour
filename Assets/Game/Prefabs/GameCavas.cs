@@ -53,16 +53,16 @@ public class GameCanvas : MonoBehaviour
     {
         audioSource.Play();
         pauseEvent.Invoke();
-        fadeController.Appear(pauseMenu);
-        fadeController.Disappear(gameMenu);
+        fadeController.FadeIn(pauseMenu);
+        fadeController.FadeOut(gameMenu);
     }
 
     public void ResumeBtn()
     {
         audioSource.Play();
         pauseEvent.Invoke();
-        fadeController.Appear(gameMenu);
-        fadeController.Disappear(pauseMenu);
+        fadeController.FadeIn(gameMenu);
+        fadeController.FadeOut(pauseMenu);
     }
 
     public void RestartBtn()
@@ -70,14 +70,14 @@ public class GameCanvas : MonoBehaviour
         audioSource.Play();
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(DelayLoad(sceneIndex));
-        fadeController.Appear(smoothTransition);
+        fadeController.FadeIn(smoothTransition);
     }
 
     public void HomeBut()
     {
         audioSource.Play();
         StartCoroutine(DelayLoad(0));
-        fadeController.Appear(smoothTransition);
+        fadeController.FadeIn(smoothTransition);
     }
 
 
@@ -91,14 +91,14 @@ public class GameCanvas : MonoBehaviour
             audioSource.Play();
             int randomScene = Random.Range(1, 99);
             StartCoroutine(DelayLoad(randomScene));
-            fadeController.Appear(smoothTransition);
+            fadeController.FadeIn(smoothTransition);
         }
         else
         {
             audioSource.Play();
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
             StartCoroutine(DelayLoad(sceneIndex + 1));
-            fadeController.Appear(smoothTransition);
+            fadeController.FadeIn(smoothTransition);
         }
     }
 
@@ -107,21 +107,21 @@ public class GameCanvas : MonoBehaviour
         audioSource.Play();
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(DelayLoad(sceneIndex));
-        fadeController.Appear(smoothTransition);
+        fadeController.FadeIn(smoothTransition);
     }
 
     public void ResultMenuHomeBtn()
     {
         audioSource.Play();
         StartCoroutine(DelayLoad(0));
-        fadeController.Appear(smoothTransition);
+        fadeController.FadeIn(smoothTransition);
     }
 
 
 
     private void UpdateOnStart()
     {
-        fadeController.Disappear(smoothTransition);
+        fadeController.FadeOut(smoothTransition);
 
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         levelIndexIndicator.text   += sceneIndex;
@@ -205,14 +205,14 @@ public class GameCanvas : MonoBehaviour
         if (zombiesNumber <= 0 || bulletsNumber <= 0)
         {
             Invoke("LoadResultMenu", 2.4f);
-            fadeController.Disappear(gameMenu);
+            fadeController.FadeOut(gameMenu);
             pauseEvent.Invoke();
 
         }
         else if(bulletsNumber <= 0 && zombiesNumber <= 0)
         {
             Invoke("LoadResultMenu", 2.4f);
-            fadeController.Disappear(gameMenu);
+            fadeController.FadeOut(gameMenu);
             pauseEvent.Invoke();
         }
     }
@@ -224,7 +224,7 @@ public class GameCanvas : MonoBehaviour
     {
         if (bulletsNumber <= 0 && zombiesNumber > 0)
         {
-            fadeController.Appear(resultMenu);
+            fadeController.FadeIn(resultMenu);
             complete = false;
             SaveLevelData(0);
         }
@@ -235,7 +235,7 @@ public class GameCanvas : MonoBehaviour
                 starImage1.enabled = true;
                 starImage2.enabled = true;
                 starImage3.enabled = true;
-                fadeController.Appear(resultMenu);
+                fadeController.FadeIn(resultMenu);
                 SaveLevelData(3);
             }
         }
@@ -246,7 +246,7 @@ public class GameCanvas : MonoBehaviour
                 starImage1.enabled = true;
                 starImage2.enabled = true;
                 starImage3.enabled = true;
-                fadeController.Appear(resultMenu);
+                fadeController.FadeIn(resultMenu);
                 SaveLevelData(3);
 
             }
@@ -254,14 +254,14 @@ public class GameCanvas : MonoBehaviour
             {
                 starImage1.enabled = true;
                 starImage2.enabled = true;
-                fadeController.Appear(resultMenu);
+                fadeController.FadeIn(resultMenu);
                 SaveLevelData(2);
             }
             else if (goldenBullets == 0 && regularBullets < 2)
             {
                 starImage1.enabled = true;
                 SaveLevelData(1);
-                fadeController.Appear(resultMenu);
+                fadeController.FadeIn(resultMenu);
             }
         }
     }

@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &510074265 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1417096980279710361, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
-  m_PrefabInstance: {fileID: 631884663}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4508d8586f24444ac650c0ec306817, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &631884663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,30 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2530218591741299356, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1ce92ae9d60798142b0ac52abf085799, type: 2}
-    - target: {fileID: 5108813310966793947, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1ce92ae9d60798142b0ac52abf085799, type: 2}
-    - target: {fileID: 5328423742425783442, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1ce92ae9d60798142b0ac52abf085799, type: 2}
-    - target: {fileID: 6161704949392289526, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1ce92ae9d60798142b0ac52abf085799, type: 2}
-    - target: {fileID: 6955398012077373296, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 1136362500}
     - target: {fileID: 6955398012077373296, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
       propertyPath: fadeController
       value: 
-      objectReference: {fileID: 510074265}
+      objectReference: {fileID: 0}
     - target: {fileID: 7083086810258972145, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -250,20 +219,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 9173121008663203501, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1ce92ae9d60798142b0ac52abf085799, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
---- !u!82 &1136362500 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1695029545932791979, guid: 7a330087f04143d4fb8a5226ec5475e3, type: 3}
-  m_PrefabInstance: {fileID: 631884663}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2130011329
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 54d1413c08e314145b74336f499720a0
+guid: a87c33fe8002bf249ae12d824de1c116
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: big button 1
+      name: all games menu
       rect:
         serializedVersion: 2
         x: 0
-        y: 949
-        width: 500
-        height: 150
+        y: 104
+        width: 160
+        height: 121
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b840da150232144b90402f4ff6b4d55
-      internalID: -1235407675
+      spriteID: 051ab807df0807a42aceff9640e53c3d
+      internalID: 941348011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big button 2
+      name: pause menu
       rect:
         serializedVersion: 2
         x: 0
-        y: 799
-        width: 500
-        height: 150
+        y: 0
+        width: 40
+        height: 103
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c27fb923d5cf18d409f24a5c3997fb97
-      internalID: 290642890
+      spriteID: 507de264933787e45b23251d737292fc
+      internalID: 1236852734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small button 1
+      name: start game button
       rect:
         serializedVersion: 2
-        x: 0
-        y: 349
-        width: 150
-        height: 150
+        x: 41
+        y: 77
+        width: 80
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04bbef800f5fd3241a02fe2e0b9707e3
-      internalID: 1030825261
+      spriteID: e726e48dd7db6e14d98aa31f177c2617
+      internalID: 1626387499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small button 2
+      name: all games button
       rect:
         serializedVersion: 2
-        x: 0
-        y: 199
-        width: 150
-        height: 150
+        x: 41
+        y: 50
+        width: 80
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97de1c56dc7526a46a6896fb1a575fb9
-      internalID: 1616577207
+      spriteID: c49997b4d63298f48b4060c0567baf29
+      internalID: 933912548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middle button 1
+      name: Home button
       rect:
         serializedVersion: 2
-        x: 0
-        y: 649
-        width: 250
-        height: 150
+        x: 41
+        y: 23
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 758028af6e29bdf43b119dde310067e8
-      internalID: 2089167809
+      spriteID: 62d6e6f8aff91ff469029717e101f576
+      internalID: -403717772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: middle button 2
+      name: play button
       rect:
         serializedVersion: 2
-        x: 0
-        y: 499
-        width: 250
-        height: 150
+        x: 68
+        y: 23
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +242,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ddde0b76f240a3449e9844f9541ef40
-      internalID: 603702495
+      spriteID: 847b4d007cd1d56478727d7c3d26c670
+      internalID: 744594567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: restart button
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 23
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26dd4c3767a6f4c42b84f5bb004cb003
+      internalID: 568520918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: no button
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d272ea0d721ce864eb3fe80e56977729
+      internalID: 461526253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yes button
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 0
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2f497efb8073d4aad064af86b71009
+      internalID: 51830798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pause button
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 2
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0bab9ade9623544da01f34421b63a76
+      internalID: 481421663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: general porpuse button
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 0
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29507ef7b1016b4e93b37268244c438
+      internalID: 55746362
       vertices: []
       indices: 
       edges: []
@@ -259,14 +364,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      big button 1: -1235407675
-      big button 2: 290642890
-      big button 3: 170506491
-      middle button 1: 2089167809
-      middle button 2: 603702495
-      small button 1: 1030825261
-      small button 2: 1616577207
-      small button 3: -896994651
+      Home button: -403717772
+      all games button: 933912548
+      all games menu: 941348011
+      general porpuse button: 55746362
+      no button: 461526253
+      pause button: 481421663
+      pause menu: 1236852734
+      play button: 744594567
+      restart button: 568520918
+      start game button: 1626387499
+      yes button: 51830798
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

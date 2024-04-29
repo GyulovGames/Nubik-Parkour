@@ -31,7 +31,7 @@ public class MenuCanvas : MonoBehaviour
         LoadSoundsSettings(YandexGame.savesData.sounds);
         LoadMusicSettings(YandexGame.savesData.music);
         
-        fadeController.Disappear(smoothTransition);
+        fadeController.FadeOut(smoothTransition);
 
     }
 
@@ -48,7 +48,6 @@ public class MenuCanvas : MonoBehaviour
             soundsButtonImage.sprite = soundsOffSprite;
         }
     }
-
     private void LoadMusicSettings(bool music)
     {
         GameObject musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer");
@@ -64,10 +63,7 @@ public class MenuCanvas : MonoBehaviour
             musicButtonImage.sprite = musicOffSprite;
         }
     }
-
-    
-
-    // Main menu buttons functions
+   
     public void BtnStartGame()
     {
         int completedLevels = YandexGame.savesData.completedLevels;
@@ -77,29 +73,22 @@ public class MenuCanvas : MonoBehaviour
             audioSource.Play();
             int levelToLoad = YandexGame.savesData.completedLevels;
             StartCoroutine(Delay(levelToLoad));
-            fadeController.Appear(smoothTransition);
+            fadeController.FadeIn(smoothTransition);
         }
         else if (completedLevels == 130)
         {
             audioSource.Play();
             int levelToLoad = Random.Range(1, 129);
             StartCoroutine(Delay(levelToLoad));
-            fadeController.Appear(smoothTransition);
+            fadeController.FadeIn(smoothTransition);
         }
-    }
-
-    public void BtnOpenLevels()
-    {
-        audioSource.Play();
-        fadeController.Appear(levelsMenu);
-        fadeController.Disappear(mainMenu);
     }
 
     public void BtnOpenAllGames()
     {
         audioSource.Play();
-        fadeController.Appear(allGamesMenu);
-        fadeController.Disappear(mainMenu);
+        fadeController.FadeIn(allGamesMenu);
+        fadeController.FadeOut(mainMenu);
     }
 
     public void BtnSounds()
@@ -148,22 +137,22 @@ public class MenuCanvas : MonoBehaviour
     public void BtnCloseLevels()
     {
         audioSource.Play();
-        fadeController.Appear(mainMenu);
-        fadeController.Disappear(levelsMenu);
+        fadeController.FadeIn(mainMenu);
+        fadeController.FadeOut(levelsMenu);
     }
 
     public void BtnCloseAllGames()
     {
         audioSource.Play();
-        fadeController.Disappear(allGamesMenu);
-        fadeController.Appear(mainMenu);
+        fadeController.FadeOut(allGamesMenu);
+        fadeController.FadeIn(mainMenu);
     }
 
     public void BtnLoadLevel(int levelIndex)
     {
         audioSource.Play();
         StartCoroutine(Delay(levelIndex));
-        fadeController.Appear(smoothTransition);
+        fadeController.FadeIn(smoothTransition);
     }
 
 

@@ -6,51 +6,50 @@ public class FadeController : MonoBehaviour
     [SerializeField] private float fadeDuration;
 
 
-    public void Appear( CanvasGroup appearGroup)
+    public void FadeIn( CanvasGroup fadeInGroup)
     {
-        StartCoroutine(AppearCoroutine(appearGroup));
-        appearGroup.gameObject.SetActive(true);
+        fadeInGroup.gameObject.SetActive(true);
+        StartCoroutine(InCoroutine(fadeInGroup));      
+    }
+    public void FadeOut(CanvasGroup fadeOutGroup)
+    {
+        StartCoroutine(OutCoroutine(fadeOutGroup));
     }
 
-    public IEnumerator AppearCoroutine( CanvasGroup group)
+
+
+    public IEnumerator InCoroutine( CanvasGroup inGroup)
     {
-        float appearGroupAlpha = group.alpha;
+        float appearGroupAlpha = inGroup.alpha;
         float timePassed = 0f;
 
         while (timePassed < fadeDuration)
         {
             float normalizedTime = timePassed / fadeDuration;
-            group.alpha = Mathf.Lerp(appearGroupAlpha, 1f, normalizedTime);
+            inGroup.alpha = Mathf.Lerp(appearGroupAlpha, 1f, normalizedTime);
 
             yield return null;
             timePassed += Time.deltaTime;
         }
 
-        group.alpha = 1f;
+        inGroup.alpha = 1f;
     }
 
-
-
-    public void Disappear(CanvasGroup disappearGroup)
+    public IEnumerator OutCoroutine(CanvasGroup inGroup)
     {
-        StartCoroutine(DisappearCoroutine(disappearGroup));
-    }
-
-    public IEnumerator DisappearCoroutine(CanvasGroup group)
-    {
-        float disappearGroupAlpha = group.alpha;      
+        float appearGroupAlpha = inGroup.alpha;
         float timePassed = 0f;
 
         while (timePassed < fadeDuration)
         {
             float normalizedTime = timePassed / fadeDuration;
-            group.alpha = Mathf.Lerp(disappearGroupAlpha, 0f, normalizedTime);
+            inGroup.alpha = Mathf.Lerp(appearGroupAlpha, 0f, normalizedTime);
 
             yield return null;
             timePassed += Time.deltaTime;
         }
 
-        group.alpha = 0f;
-        group.gameObject.SetActive(false);
+        inGroup.alpha = 0f;
+        inGroup.gameObject.SetActive(false);
     }
 }
