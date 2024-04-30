@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4508d8586f24444ac650c0ec306817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 0.5
+  fadeDuration: 0.45
 --- !u!1 &226145770754107336
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,9 +191,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6955398012077373296}
         m_TargetAssemblyTypeName: MenuCanvas, Assembly-CSharp
-        m_MethodName: BtnMusic
+        m_MethodName: BtnGamesNOorYES
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -201,6 +201,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: YG.YandexGame, Assembly-CSharp
+        m_MethodName: _OnURL_Yandex_DefineDomain
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: developer/40067
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &324635165839766610
@@ -346,9 +358,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6955398012077373296}
         m_TargetAssemblyTypeName: MenuCanvas, Assembly-CSharp
-        m_MethodName: BtnOpenLevels
+        m_MethodName: BtnOpenAllGames
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -438,7 +450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1809500067853875878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -587,6 +599,7 @@ GameObject:
   - component: {fileID: 8378679167597023418}
   - component: {fileID: 557083935213041748}
   - component: {fileID: 8654352647298921368}
+  - component: {fileID: 1873235476177773859}
   m_Layer: 5
   m_Name: GamesMenu
   m_TagString: Untagged
@@ -652,6 +665,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1873235476177773859
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684605038015980347}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2103325492948700743
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,55 +835,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Do you want to see other games from this developer?
---- !u!1 &2942706926555156085
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2410484226980724225}
-  - component: {fileID: 3078424301798443901}
-  m_Layer: 5
-  m_Name: MoveController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!224 &2410484226980724225
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2942706926555156085}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7083086810258972145}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3078424301798443901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2942706926555156085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406de4a9205d96c42bf09cf86d30fe48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.5
 --- !u!1 &3056728053357838528
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,10 +867,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 911338750652771155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 625, y: -92.5}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4968690737565697592
 CanvasRenderer:
@@ -1261,7 +1237,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6955398012077373296}
         m_TargetAssemblyTypeName: MenuCanvas, Assembly-CSharp
         m_MethodName: BtnSounds
         m_Mode: 1
@@ -1537,10 +1513,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 911338750652771155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -92.5}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &850671527113602620
 CanvasRenderer:
@@ -1691,10 +1667,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 911338750652771155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 450, y: -92.5}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3766486998437857122
 CanvasRenderer:
@@ -1766,10 +1742,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 911338750652771155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 800, y: -92.5}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6126926054092863520
 CanvasRenderer:
@@ -2026,9 +2002,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6955398012077373296}
         m_TargetAssemblyTypeName: MenuCanvas, Assembly-CSharp
-        m_MethodName: BtnSounds
+        m_MethodName: BtnGamesNOorYES
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2335,7 +2311,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6955398012077373296}
         m_TargetAssemblyTypeName: MenuCanvas, Assembly-CSharp
         m_MethodName: BtnMusic
         m_Mode: 1
@@ -2379,10 +2355,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 911338750652771155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -92.5}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3276956697527668800
 CanvasRenderer:
@@ -2537,7 +2513,6 @@ RectTransform:
   - {fileID: 44225149385964603}
   - {fileID: 8378679167597023418}
   - {fileID: 1809500067853875878}
-  - {fileID: 2410484226980724225}
   - {fileID: 4176527184606408565}
   - {fileID: 4155094210989680013}
   m_Father: {fileID: 0}
@@ -2718,17 +2693,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cba2539609c9748aa2c9668b774cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1695029545932791979}
+  buttonPlayer: {fileID: 1695029545932791979}
   fadeController: {fileID: 1501598037133699658}
-  soundsOnSprite: {fileID: 0}
-  soundsOffSprite: {fileID: 0}
-  musicOnSprite: {fileID: 0}
-  musicOffSprite: {fileID: 0}
-  starSprite: {fileID: 0}
-  soundsButtonImage: {fileID: 0}
-  musicButtonImage: {fileID: 0}
-  mainMenu: {fileID: 0}
-  allGamesMenu: {fileID: 0}
-  levelsMenu: {fileID: 0}
-  smoothTransition: {fileID: 0}
-  levelsButtons: []
+  soundsOnSprite: {fileID: 21300000, guid: 88f62d038d9eac44ba822c16dfdde1a8, type: 3}
+  soundsOffSprite: {fileID: 21300000, guid: c1d24ac8528957e4e951c62b22067179, type: 3}
+  musicOnSprite: {fileID: 21300000, guid: edf619b39ca8261469c6b12e379f22b9, type: 3}
+  musicOffSprite: {fileID: 21300000, guid: d784948f575826c44aedb293890e128f, type: 3}
+  soundsButtonImage: {fileID: 5891662809508726417}
+  musicButtonImage: {fileID: 4741537338099211416}
+  gamesMenu: {fileID: 1873235476177773859}
+  smoothTransition: {fileID: 3799448238760212581}

@@ -11,9 +11,7 @@ namespace YG
         public bool promptDone;
 
 
-
         // Ваши сохранения
-        public int[] completedLevelsStars = new int[130];
         public int completedLevels = 1;
         public bool sounds = true;
         public bool music = true;

@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/OldGame/Scenes/MainMenu.unity
-    guid: 3875c6a42826957478a3892f98f9a40c
-  - enabled: 0
-    path: Assets/OldGame/Scenes/Level 1.unity
-    guid: f426ebbfef2b3c643b5ff619fdf9db55
+  - enabled: 1
+    path: Assets/Game/Scens/MainMenu.unity
+    guid: 0fa3019f4aa1c8e428c57ce9689067a9
+  - enabled: 1
+    path: Assets/Game/Scens/Lv 1.unity
+    guid: 49daed4b0fc40a24f8833e43cc1e0892
   m_configObjects: {}

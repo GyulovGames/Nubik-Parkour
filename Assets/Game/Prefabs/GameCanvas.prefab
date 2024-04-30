@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4508d8586f24444ac650c0ec306817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 0.5
+  fadeDuration: 0.45
 --- !u!1 &872242556787707806
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +248,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6195410469032508952}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2927117270931123757}
+        m_TargetAssemblyTypeName: GameCanvas, Assembly-CSharp
+        m_MethodName: ResumeBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1478168894209315804
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +402,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1351580427401061269}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2927117270931123757}
+        m_TargetAssemblyTypeName: GameCanvas, Assembly-CSharp
+        m_MethodName: HomeBut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1735107511638789764
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +651,7 @@ GameObject:
   - component: {fileID: 5768016694940715301}
   - component: {fileID: 4229520747553662202}
   - component: {fileID: 3480341895705878606}
+  - component: {fileID: 8519075912850703659}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -693,6 +718,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &8519075912850703659
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3347449177114632547}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4863739909875502021
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,8 +872,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CanvasController, Assembly-CSharp
+      - m_Target: {fileID: 2927117270931123757}
+        m_TargetAssemblyTypeName: GameCanvas, Assembly-CSharp
         m_MethodName: PauseBtn
         m_Mode: 1
         m_Arguments:
@@ -1037,7 +1074,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5923447458854165417}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2927117270931123757}
+        m_TargetAssemblyTypeName: GameCanvas, Assembly-CSharp
+        m_MethodName: RestartBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5287839241781443745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1206,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 38d58c2f5f65ebd45a8020972cd5cfe8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1c5862f2088ade34cb02d43a1c39eb11, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 0.95
@@ -1255,22 +1304,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d24d54ad049e84492dc9c50f415ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldenBullets: 0
-  audioSource: {fileID: 0}
+  buttonPlayer: {fileID: 5601389434149238945}
   fadeController: {fileID: 6894528336892807943}
-  goldenBulletSprite: {fileID: 0}
-  regularBulletSprite: {fileID: 0}
-  emptyBulletSprite: {fileID: 0}
-  starImage1: {fileID: 0}
-  starImage2: {fileID: 0}
-  starImage3: {fileID: 0}
-  resultMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  gameMenu: {fileID: 0}
-  smoothTransition: {fileID: 0}
-  levelIndexIndicator: {fileID: 0}
-  resultMenuLevelIndexIndicator: {fileID: 0}
-  bulletsCells: []
+  pauseMenu: {fileID: 8519075912850703659}
+  gameMenu: {fileID: 7304328908826361358}
+  smoothTransition: {fileID: 1155402412667020592}
 --- !u!1 &6703185571925674408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9214677151907854344
 RectTransform:
   m_ObjectHideFlags: 0

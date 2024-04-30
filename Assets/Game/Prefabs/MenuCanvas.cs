@@ -6,50 +6,48 @@ using YG;
 
 public class MenuCanvas : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource buttonPlayer;
     [SerializeField] private FadeController fadeController;
     [Space(10)]
     [SerializeField] private Sprite soundsOnSprite;
     [SerializeField] private Sprite soundsOffSprite;
     [SerializeField] private Sprite musicOnSprite;
     [SerializeField] private Sprite musicOffSprite;
-    [SerializeField] private Sprite starSprite;
-    [Space(20)]
+    [Space(10)]
     [SerializeField] private Image soundsButtonImage;
     [SerializeField] private Image musicButtonImage;
-    [Space(20)]
-    [SerializeField] private CanvasGroup mainMenu;
-    [SerializeField] private CanvasGroup allGamesMenu;
-    [SerializeField] private CanvasGroup levelsMenu;
-    [SerializeField] private CanvasGroup smoothTransition;
     [Space(10)]
-    [SerializeField] private Button[] levelsButtons;
+    [SerializeField] private CanvasGroup gamesMenu;
+    [SerializeField] private CanvasGroup smoothTransition;
 
-
-    private void Start()
+    private void Awake()
     {
-        LoadSoundsSettings(YandexGame.savesData.sounds);
-        LoadMusicSettings(YandexGame.savesData.music);
-        
+        LoadSoundsSettings();
+        LoadMusicSettings();
+    }
+    private void Start()
+    {       
         fadeController.FadeOut(smoothTransition);
-
     }
 
-    private void LoadSoundsSettings(bool sounds)
+    private void LoadSoundsSettings()
     {
+        bool sounds = YandexGame.savesData.sounds;
+
         if (sounds == true)
         {
-            audioSource.volume = 1f;
+            buttonPlayer.volume = 1f;
             soundsButtonImage.sprite = soundsOnSprite;         
         }
         else if(sounds == false)
         {
-            audioSource.volume = 0f;
+            buttonPlayer.volume = 0f;
             soundsButtonImage.sprite = soundsOffSprite;
         }
     }
-    private void LoadMusicSettings(bool music)
+    private void LoadMusicSettings()
     {
+        bool music = YandexGame.savesData.music;
         GameObject musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer");
         AudioSource aus = musicPlayer.GetComponent<AudioSource>();
 
@@ -63,60 +61,32 @@ public class MenuCanvas : MonoBehaviour
             musicButtonImage.sprite = musicOffSprite;
         }
     }
-   
-    public void BtnStartGame()
-    {
-        int completedLevels = YandexGame.savesData.completedLevels;
-
-        if(completedLevels != 130)
-        {
-            audioSource.Play();
-            int levelToLoad = YandexGame.savesData.completedLevels;
-            StartCoroutine(Delay(levelToLoad));
-            fadeController.FadeIn(smoothTransition);
-        }
-        else if (completedLevels == 130)
-        {
-            audioSource.Play();
-            int levelToLoad = Random.Range(1, 129);
-            StartCoroutine(Delay(levelToLoad));
-            fadeController.FadeIn(smoothTransition);
-        }
-    }
-
-    public void BtnOpenAllGames()
-    {
-        audioSource.Play();
-        fadeController.FadeIn(allGamesMenu);
-        fadeController.FadeOut(mainMenu);
-    }
-
     public void BtnSounds()
     {
         bool sounds = YandexGame.savesData.sounds;
 
         if (sounds == true)
         {
-            audioSource.volume = 0f;
+            buttonPlayer.volume = 0f;
             soundsButtonImage.sprite = soundsOffSprite;
             YandexGame.savesData.sounds = false;
             YandexGame.SaveProgress();
         }
-        else if(sounds == false)
+        else if (sounds == false)
         {
-            audioSource.Play();
-            audioSource.volume = 1f;
+            buttonPlayer.Play();
+            buttonPlayer.volume = 1f;
             soundsButtonImage.sprite = soundsOnSprite;
             YandexGame.savesData.sounds = true;
             YandexGame.SaveProgress();
         }
     }
-
     public void BtnMusic()
     {
         bool music = YandexGame.savesData.music;
         GameObject musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer");
         AudioSource aus = musicPlayer.GetComponent<AudioSource>();
+        buttonPlayer.Play();
 
         if (music == true)
         {
@@ -128,33 +98,34 @@ public class MenuCanvas : MonoBehaviour
         else if (music == false)
         {
             aus.Play();
-            musicButtonImage.sprite=musicOnSprite;
+            musicButtonImage.sprite = musicOnSprite;
             YandexGame.savesData.music = true;
             YandexGame.SaveProgress();
         }
     }
 
-    public void BtnCloseLevels()
+    public void BtnStartGame()
     {
-        audioSource.Play();
-        fadeController.FadeIn(mainMenu);
-        fadeController.FadeOut(levelsMenu);
+        buttonPlayer.Play();
+        fadeController.FadeIn(smoothTransition);
+        int completedLevels = YandexGame.savesData.completedLevels;
+        StartCoroutine(Delay(1));
     }
-
+    public void BtnOpenAllGames()
+    {
+        buttonPlayer.Play();
+        fadeController.FadeIn(gamesMenu);
+    }
     public void BtnCloseAllGames()
     {
-        audioSource.Play();
-        fadeController.FadeOut(allGamesMenu);
-        fadeController.FadeIn(mainMenu);
+        buttonPlayer.Play();
+        fadeController.FadeIn(gamesMenu);
     }
-
-    public void BtnLoadLevel(int levelIndex)
+    public void BtnGamesNOorYES()
     {
-        audioSource.Play();
-        StartCoroutine(Delay(levelIndex));
-        fadeController.FadeIn(smoothTransition);
+        buttonPlayer.Play();
+        fadeController.FadeOut(gamesMenu);
     }
-
 
     private IEnumerator Delay(int levelIndex)
     {
