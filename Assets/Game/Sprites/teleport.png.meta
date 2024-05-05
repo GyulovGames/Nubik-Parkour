@@ -144,13 +144,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teleport 2
+      name: teleport 3
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
-        width: 48
-        height: 80
+        y: 64
+        width: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,6 +160,69 @@ TextureImporter:
       bones: []
       spriteID: 5b1ff85bdc25bf5499867dd716a11175
       internalID: 828619568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport 2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd40291152235143b0099a1fee865e6
+      internalID: 712065028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport 4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1879b38b25fc08044a7ea9b1d747b20d
+      internalID: -857152650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport 5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a36a4050aa0a64093ea040645017bd
+      internalID: -1506434067
       vertices: []
       indices: 
       edges: []
@@ -176,7 +239,10 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       teleport 1: 162352428
-      teleport 2: 828619568
+      teleport 2: 712065028
+      teleport 3: 828619568
+      teleport 4: -857152650
+      teleport 5: -1506434067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

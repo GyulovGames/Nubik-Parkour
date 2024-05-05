@@ -16,6 +16,8 @@ public class Noobik : MonoBehaviour
     [SerializeField] private Transform groundChek;
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private Animator mainAnimator;
+    [SerializeField] private AudioSource runningAudio;
+    [SerializeField] private AudioSource jumpingAudio;
 
     [HideInInspector] public int jumpsNumber = 2;
     [HideInInspector] public bool isGrounded = true;
@@ -52,16 +54,30 @@ public class Noobik : MonoBehaviour
         {
             jumpsNumber--;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpPower);
+            jumpingAudio.Play();
         }
         else if (jumpsNumber > 0)
         {
             jumpsNumber--;
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpPower);
+            jumpingAudio.Play();
         }
     }
     private void Movement()
     {
         rigidBody.velocity = new Vector2(horizontalInput * movementSpeed, rigidBody.velocity.y);       
+
+        if(horizontalInput != 0 && isGrounded)
+        {
+            if (!runningAudio.isPlaying)
+            {
+                runningAudio.Play();
+            }
+        }
+        else
+        {
+            runningAudio.Pause();
+        }
     }
     private void BodyFlip()
     {
