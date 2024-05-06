@@ -9,10 +9,32 @@ public class GameCamera : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private Transform noobTransform;
 
+    private bool cameraStop = false;
+
+
+    private void Awake()
+    {
+        Noobik.DeadEvent.AddListener(StopStalking);
+        Noobik.AliveEvent.AddListener(ResumeStalking);
+    }
+
+    private void StopStalking()
+    {
+        cameraStop = true;
+    }
+    private void ResumeStalking()
+    {
+        cameraStop = false;
+    }
+
+
     private void FixedUpdate()
     {
-        Vector3 desiredPosition = noobTransform.position + cameraOffset;
-        Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, folowSpeed);
-        transform.position = smoothPosition;
+        if(!cameraStop)
+        {
+            Vector3 desiredPosition = noobTransform.position + cameraOffset;
+            Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, folowSpeed);
+            transform.position = smoothPosition;
+        }
     }
 }

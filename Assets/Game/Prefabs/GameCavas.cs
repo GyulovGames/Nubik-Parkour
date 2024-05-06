@@ -14,7 +14,7 @@ public class GameCanvas : MonoBehaviour
     [SerializeField] private CanvasGroup gameMenu;
     [SerializeField] private CanvasGroup smoothTransition;
 
-    public static UnityEvent pauseEvent = new UnityEvent();
+    public static UnityEvent PauseEvent = new UnityEvent();
 
     private void Awake()
     {
@@ -41,14 +41,14 @@ public class GameCanvas : MonoBehaviour
     public void PauseBtn()
     {
         buttonPlayer.Play();
-        pauseEvent.Invoke();
+        PauseEvent.Invoke();
         fadeController.FadeIn(pauseMenu);
         fadeController.FadeOut(gameMenu);
     }
     public void ResumeBtn()
     {
         buttonPlayer.Play();
-        pauseEvent.Invoke();
+        PauseEvent.Invoke();
         fadeController.FadeIn(gameMenu);
         fadeController.FadeOut(pauseMenu);
     }

@@ -22,10 +22,17 @@ public class Noobik : MonoBehaviour
     [HideInInspector] public int jumpsNumber = 2;
     [HideInInspector] public bool isGrounded = true;
 
+    private Vector2 startPosition = Vector2.zero;
     private bool isFacingRight = true;
     private int horizontalInput;
 
+    public static UnityEvent DeadEvent = new UnityEvent();
+    public static UnityEvent AliveEvent = new UnityEvent();
 
+    private void Start()
+    {
+        GetStartPosition();
+    }
     private void Update()
     {
         PlayerInput();
@@ -37,6 +44,10 @@ public class Noobik : MonoBehaviour
         Movement();
     }
 
+    private void GetStartPosition()
+    {
+        startPosition = transform.position;
+    }
     private void PlayerInput()
     {
         horizontalInput = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));       
@@ -97,4 +108,18 @@ public class Noobik : MonoBehaviour
         }     
     }
 
+    private void ReplaseNoob()
+    {
+        transform.position = startPosition;
+        AliveEvent.Invoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Dead")
+        {
+            DeadEvent.Invoke();
+            Invoke("ReplaseNoob", 1f);
+        }
+    }
 }
