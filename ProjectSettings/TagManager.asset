@@ -13,6 +13,7 @@ TagManager:
   - EventSystem
   - Ground
   - Dead
+  - Teleport
   layers:
   - Default
   - TransparentFX

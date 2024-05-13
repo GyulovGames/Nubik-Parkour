@@ -16,13 +16,15 @@ public class Noobik : MonoBehaviour
     [SerializeField] private Transform groundChek;
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private Animator mainAnimator;
+    [SerializeField] private AudioSource portalAudio;
     [SerializeField] private AudioSource runningAudio;
     [SerializeField] private AudioSource jumpingAudio;
-
+    [SerializeField] private ParticleSystem runParticles;
     [HideInInspector] public int jumpsNumber = 2;
     [HideInInspector] public bool isGrounded = true;
 
     private Vector2 startPosition = Vector2.zero;
+    private bool stopPlayerInput = false;
     private bool isFacingRight = true;
     private int horizontalInput;
 
@@ -50,8 +52,8 @@ public class Noobik : MonoBehaviour
     }
     private void PlayerInput()
     {
-        horizontalInput = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));       
-        if(Input.GetKeyDown(KeyCode.W)) { DoubleJump(); }
+        horizontalInput = Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
+        if (Input.GetKeyDown(KeyCode.W)) { DoubleJump(); }
     }
     private void Animations()
     {
@@ -76,19 +78,30 @@ public class Noobik : MonoBehaviour
     }
     private void Movement()
     {
-        rigidBody.velocity = new Vector2(horizontalInput * movementSpeed, rigidBody.velocity.y);       
 
-        if(horizontalInput != 0 && isGrounded)
+        if (!stopPlayerInput)
         {
-            if (!runningAudio.isPlaying)
+            rigidBody.velocity = new Vector2(horizontalInput * movementSpeed, rigidBody.velocity.y);
+
+            if (horizontalInput != 0 && isGrounded)
             {
-                runningAudio.Play();
+                if (!runningAudio.isPlaying)
+                {
+                    runningAudio.Play();
+                }
+
+                if (!runParticles.isPlaying)
+                {
+                    runParticles.Play();
+                }
+            }
+            else
+            {
+                runningAudio.Pause();
+                runParticles.Stop();
             }
         }
-        else
-        {
-            runningAudio.Pause();
-        }
+
     }
     private void BodyFlip()
     {
@@ -107,7 +120,6 @@ public class Noobik : MonoBehaviour
             isFacingRight = !isFacingRight;
         }     
     }
-
     private void ReplaseNoob()
     {
         transform.position = startPosition;
@@ -120,6 +132,15 @@ public class Noobik : MonoBehaviour
         {
             DeadEvent.Invoke();
             Invoke("ReplaseNoob", 1f);
+        }
+        else if (collision.gameObject.tag == "Teleport")
+        {
+            stopPlayerInput = true;
+            rigidBody.velocity = Vector3.zero;
+            portalAudio.Play();
+            mainAnimator.SetTrigger("Teleportation");
+            runningAudio.Stop();
+            runParticles.Stop();
         }
     }
 }

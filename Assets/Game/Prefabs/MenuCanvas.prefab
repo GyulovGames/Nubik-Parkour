@@ -432,6 +432,85 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &441569290447077127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547490428045664362}
+  - component: {fileID: 7565236140446694832}
+  - component: {fileID: 2465021275189386774}
+  m_Layer: 5
+  m_Name: txt_Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1547490428045664362
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441569290447077127}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1809500067853875878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 600, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7565236140446694832
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441569290447077127}
+  m_CullTransparentMesh: 1
+--- !u!114 &2465021275189386774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441569290447077127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f09033df0097c604fa5629ac40d47757, type: 3}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 154
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Loading...
 --- !u!1 &458067405636306309
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +541,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1547490428045664362}
   m_Father: {fileID: 7083086810258972145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1850,7 +1930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: edf619b39ca8261469c6b12e379f22b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 840728f6613d06442b7e4ef6b9a1f6b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2079,7 +2159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 88f62d038d9eac44ba822c16dfdde1a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80f9d8c32b626324c861a22e0bcb29d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2695,10 +2775,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPlayer: {fileID: 1695029545932791979}
   fadeController: {fileID: 1501598037133699658}
-  soundsOnSprite: {fileID: 21300000, guid: 88f62d038d9eac44ba822c16dfdde1a8, type: 3}
-  soundsOffSprite: {fileID: 21300000, guid: c1d24ac8528957e4e951c62b22067179, type: 3}
-  musicOnSprite: {fileID: 21300000, guid: edf619b39ca8261469c6b12e379f22b9, type: 3}
-  musicOffSprite: {fileID: 21300000, guid: d784948f575826c44aedb293890e128f, type: 3}
+  soundsOnSprite: {fileID: 21300000, guid: 80f9d8c32b626324c861a22e0bcb29d5, type: 3}
+  soundsOffSprite: {fileID: 21300000, guid: 4faf011ffb3dce94db8ed5aa4237724f, type: 3}
+  musicOnSprite: {fileID: 21300000, guid: 840728f6613d06442b7e4ef6b9a1f6b0, type: 3}
+  musicOffSprite: {fileID: 21300000, guid: 760d3ca7e755ec84f879fd2a27fcb0ba, type: 3}
   soundsButtonImage: {fileID: 5891662809508726417}
   musicButtonImage: {fileID: 4741537338099211416}
   gamesMenu: {fileID: 1873235476177773859}
