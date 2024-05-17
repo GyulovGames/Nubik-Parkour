@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 104
+        y: 131
         width: 160
         height: 121
       alignment: 0
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 27
         width: 40
         height: 103
       alignment: 0
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 41
-        y: 77
+        y: 104
         width: 80
         height: 26
       alignment: 0
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 41
-        y: 50
+        y: 77
         width: 80
         height: 26
       alignment: 0
@@ -353,6 +353,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: reset progress button
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 50
+        width: 80
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651cf954e16cfee44bdefc414777d915
+      internalID: 1202916112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -372,6 +393,7 @@ TextureImporter:
       pause button: 481421663
       pause menu: 1236852734
       play button: 744594567
+      reset progress button: 1202916112
       restart button: 568520918
       start game button: 1626387499
       yes button: 51830798
