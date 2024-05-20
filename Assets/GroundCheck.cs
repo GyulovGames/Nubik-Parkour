@@ -12,12 +12,7 @@ public class GroundCheck : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             landingAudio.Play();
-            noobik.isGrounded = true;
             noobik.jumpsNumber = 2;
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        noobik.isGrounded = false;
     }
 }

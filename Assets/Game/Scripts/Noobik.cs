@@ -19,9 +19,13 @@ public class Noobik : MonoBehaviour
     [SerializeField] private AudioSource portalAudio;
     [SerializeField] private AudioSource runningAudio;
     [SerializeField] private AudioSource jumpingAudio;
+    [SerializeField] private AudioSource landingAudio;
     [SerializeField] private ParticleSystem runParticles;
-    [HideInInspector] public int jumpsNumber = 2;
-    [HideInInspector] public bool isGrounded = true;
+    public AudioClip clip;
+    [SerializeField] private LayerMask groundLayer;
+     public int jumpsNumber = 1;
+    public int airJump = 1;
+     public bool isGrounded = true;
 
     private Vector2 startPosition = Vector2.zero;
     private bool stopPlayerInput = false;
@@ -37,6 +41,7 @@ public class Noobik : MonoBehaviour
     }
     private void Update()
     {
+        GroundCheck();
         PlayerInput();
         Animations();
         BodyFlip();
@@ -125,6 +130,11 @@ public class Noobik : MonoBehaviour
         transform.position = startPosition;
         AliveEvent.Invoke();
     }
+    private void GroundCheck()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundChek.position, 0.3f, groundLayer);
+    }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
